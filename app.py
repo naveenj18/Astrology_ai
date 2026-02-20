@@ -656,7 +656,7 @@ else:
     with hcol1:
         st.markdown(f"""
         <div style="background:#7B00FF;padding:1rem 1.4rem;border-radius:16px 0 0 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;">
-          <div class="chat-header-name" style="color:#fff;font-weight:700;font-size:1.05rem;">🪐 Jyotish AI · AstroVed</div>
+          <div class="chat-header-name" style="color:#fff;font-weight:700;font-size:1.05rem;">🪐 astrology AI · AstroVed</div>
           <div class="chat-header-status" style="color:rgba(255,255,255,0.72);font-size:0.72rem;margin-top:2px;">Chat In Progress · {st.session_state.user_name}</div>
         </div>
         """, unsafe_allow_html=True)
