@@ -520,7 +520,7 @@ with st.sidebar:
                     })
                     st.session_state.messages.append({
                         "role": "assistant",
-                        "content": f"✨ Namaste {name}! Your birth chart is ready. Ask me anything about your career, relationships, health, yogas, or spiritual path — I'll answer using both your personal chart and classical Vedic texts.",
+                        "content": f"✨ Hi {name}! Your birth chart is ready. Ask me anything about your career, relationships, health, yogas, or spiritual path — I'll answer using both your personal chart and classical Vedic texts.",
                         "sources": []
                     })
                     st.success("✅ Chart ready!")
