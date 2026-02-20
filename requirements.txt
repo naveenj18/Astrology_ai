@@ -2,8 +2,5 @@ streamlit
 pinecone
 openai
 groq
-pdfplumber
 python-dotenv
-langchain-text-splitters
-request
-pinecone-client
+requests
