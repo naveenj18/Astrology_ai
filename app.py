@@ -16,20 +16,6 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500;600;700&display=swap');
 
-/* ── AstroVed Chat UI Palette (from astroved.com chat screenshot) ────────────
-   page-bg      : #E8E8F5   lavender page background
-   chat-header  : #7B00FF   deep violet header bar
-   bubble-bot   : #D4D8F0   blue-grey left bubbles (astrologer/AI)
-   bubble-user  : #F0EAD6   cream/beige right bubbles (user)
-   send-btn     : #4A5BE8   blue send button
-   end-btn      : #E53935   red End Chat button
-   blue-logo    : #6B6FE0   AstroVed periwinkle brand
-   orange-logo  : #E8720C   AstroVed orange gem accent
-   text-dark    : #1A1A4E   deep text
-   text-muted   : #7678C8   muted labels
-   border       : #D8D9F8   soft border
-   ──────────────────────────────────────────────────────────────────────── */
-
 html, body, [class*="css"] {
   font-family: 'Nunito', sans-serif;
   background: #E8E8F5 !important;
@@ -43,7 +29,6 @@ html, body, [class*="css"] {
   margin: 0 auto;
 }
 
-/* ── Top nav bar mimicking AstroVed ── */
 .av-navbar {
   background: #ffffff;
   border-bottom: 3px solid #7B00FF;
@@ -74,7 +59,6 @@ html, body, [class*="css"] {
 }
 .av-nav-link:hover { color: #7B00FF; }
 
-/* ── Chat card wrapper ── */
 .chat-card {
   background: #ffffff;
   border-radius: 16px;
@@ -83,7 +67,6 @@ html, body, [class*="css"] {
   margin: 0 1rem 1.2rem 1rem;
 }
 
-/* ── Chat header bar ── */
 .chat-header {
   background: #7B00FF;
   padding: 1rem 1.4rem;
@@ -94,7 +77,7 @@ html, body, [class*="css"] {
 .chat-header-name   { font-size: 1.05rem; font-weight: 700; color: #fff; }
 .chat-header-status { font-size: 0.72rem; color: rgba(255,255,255,0.72); margin-top: 2px; }
 .btn-end-chat {
-  background: #E53935;
+  background: linear-gradient(135deg, #FFA040, #E8720C);
   color: #fff;
   border: none;
   border-radius: 7px;
@@ -105,7 +88,6 @@ html, body, [class*="css"] {
   cursor: pointer;
 }
 
-/* ── Counter strip ── */
 .counter-strip {
   display: flex;
   justify-content: space-between;
@@ -117,7 +99,6 @@ html, body, [class*="css"] {
   color: #7678C8;
 }
 
-/* ── Messages area with zodiac watermark ── */
 .chat-messages {
   padding: 1.2rem 1.4rem;
   min-height: 360px;
@@ -129,7 +110,6 @@ html, body, [class*="css"] {
   position: relative;
   overflow: hidden;
 }
-/* zodiac symbol watermark */
 .chat-messages::before {
   content: '♈  ♉  ♊  ♋  ♌  ♍  ♎  ♏  ♐  ♑  ♒  ♓  ★  ☽  ☀  ♄  ♃  ♂  ♀  ☿';
   position: absolute;
@@ -143,10 +123,7 @@ html, body, [class*="css"] {
   padding: 1rem;
 }
 
-/* ── Individual message rows ── */
 .msg-row { position: relative; z-index: 1; margin-bottom: 0.9rem; }
-
-/* Bot (left) */
 .msg-bot  { display: flex; flex-direction: column; align-items: flex-start; }
 .msg-user { display: flex; flex-direction: column; align-items: flex-end; }
 
@@ -175,7 +152,6 @@ html, body, [class*="css"] {
   padding: 0 4px;
 }
 
-/* sources */
 .sources { margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(107,111,224,0.15); display: flex; flex-wrap: wrap; gap: 4px; }
 .src-tag {
   background: rgba(107,111,224,0.10);
@@ -186,7 +162,6 @@ html, body, [class*="css"] {
   color: #6B6FE0;
 }
 
-/* ── Input area ── */
 .chat-input-wrap {
   border-top: 1px solid #eee;
   padding: 0.9rem 1.4rem;
@@ -224,19 +199,20 @@ html, body, [class*="css"] {
   transform: translateY(-1px) !important;
   box-shadow: 0 4px 16px rgba(74,91,232,0.35) !important;
 }
-/* End Chat button — red override */
+
+/* ── End Chat button — ORANGE override ── */
 [data-testid="stHorizontalBlock"] div:last-child .stButton > button,
-button[kind="secondary"] { background: #E53935 !important; }
+button[kind="secondary"] { background: linear-gradient(135deg, #FFA040, #E8720C) !important; }
 div[data-testid="column"]:last-child .stButton > button {
-  background: #E53935 !important;
+  background: linear-gradient(135deg, #FFA040, #E8720C) !important;
   font-size: 0.78rem !important;
   padding: 8px 14px !important;
   border-radius: 7px !important;
   width: auto !important;
 }
 div[data-testid="column"]:last-child .stButton > button:hover {
-  background: #C62828 !important;
-  box-shadow: 0 4px 12px rgba(229,57,53,0.4) !important;
+  background: linear-gradient(135deg, #FFB560, #FFA040) !important;
+  box-shadow: 0 4px 12px rgba(232,114,12,0.45) !important;
 }
 
 /* ── Sidebar ── */
@@ -267,7 +243,6 @@ div[data-testid="column"]:last-child .stButton > button:hover {
   box-shadow: 0 4px 16px rgba(232,114,12,0.4) !important;
 }
 
-/* ── Redirect / session-end box ── */
 .redirect-box {
   background: linear-gradient(135deg, #f4f4fd, #eeeffe);
   border: 1px solid #B0B3F0;
@@ -297,7 +272,6 @@ div[data-testid="column"]:last-child .stButton > button:hover {
   text-transform: uppercase;
 }
 
-/* ── Welcome chips ── */
 .chips { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; }
 .chip {
   background: #fff;
@@ -308,7 +282,6 @@ div[data-testid="column"]:last-child .stButton > button:hover {
   color: #6B6FE0;
 }
 
-/* ── Consult banner ── */
 .consult-banner {
   background: linear-gradient(135deg, #6B6FE0, #7B00FF);
   border-radius: 14px;
@@ -341,12 +314,46 @@ div[data-testid="column"]:last-child .stButton > button:hover {
 ::-webkit-scrollbar-track { background: #E8E8F5; }
 ::-webkit-scrollbar-thumb { background: #B0B3F0; border-radius: 2px; }
 
-/* footer divider */
 .av-footer-divider {
   border: none;
   height: 2px;
   background: linear-gradient(90deg, transparent, #6B6FE0, #E8720C, #6B6FE0, transparent);
   margin: 0.5rem 1rem;
+}
+
+/* ── Fix: remove gap/line between header col and end-chat col ── */
+[data-testid="stHorizontalBlock"] {
+  gap: 0 !important;
+  margin: 0 1rem !important;
+  align-items: stretch !important;
+}
+[data-testid="stHorizontalBlock"] [data-testid="column"] {
+  padding: 0 !important;
+}
+/* Header left col */
+[data-testid="stHorizontalBlock"] [data-testid="column"]:first-child > div {
+  height: 100%;
+}
+/* End Chat col — purple bg to match header, no gap */
+[data-testid="stHorizontalBlock"] [data-testid="column"]:last-child {
+  background: #7B00FF;
+  border-radius: 0 16px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.8rem !important;
+}
+[data-testid="stHorizontalBlock"] [data-testid="column"]:last-child .stButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+[data-testid="stHorizontalBlock"] [data-testid="column"]:last-child .stButton > button {
+  background: linear-gradient(135deg, #FFA040, #E8720C) !important;
+  border-radius: 8px !important;
+  white-space: nowrap;
+  margin: 0 !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -535,7 +542,6 @@ with st.sidebar:
 
 # ── Main area ─────────────────────────────────────────────────────────────────
 if not st.session_state.birth_submitted:
-    # ── Welcome screen ──
     st.markdown("""
     <div class="chat-card">
       <div class="chat-header">
@@ -565,9 +571,7 @@ if not st.session_state.birth_submitted:
     """, unsafe_allow_html=True)
 
 elif st.session_state.chat_count >= MAX_QUESTIONS:
-    # ── Session complete ──
     used = MAX_QUESTIONS
-    # render all messages
     msgs_html = ""
     for msg in st.session_state.messages:
         if msg["role"] == "user":
@@ -627,7 +631,6 @@ else:
     filled    = "🟠" * used
     empty     = "⚫" * remaining
 
-    # Build messages HTML
     msgs_html = ""
     for msg in st.session_state.messages:
         if msg["role"] == "user":
@@ -648,23 +651,21 @@ else:
               <div class="msg-time">🪐 astrology AI</div>
             </div>"""
 
-    # ── Chat header with real End Chat button ──
+    # ── Chat header: seamless header + orange End Chat button, no gap/line ──
     hcol1, hcol2 = st.columns([5, 1])
     with hcol1:
         st.markdown(f"""
-        <div style="background:#7B00FF;padding:1rem 1.4rem;border-radius:16px 0 0 0;display:flex;flex-direction:column;">
+        <div style="background:#7B00FF;padding:1rem 1.4rem;border-radius:16px 0 0 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;">
           <div class="chat-header-name" style="color:#fff;font-weight:700;font-size:1.05rem;">🪐 Jyotish AI · AstroVed</div>
           <div class="chat-header-status" style="color:rgba(255,255,255,0.72);font-size:0.72rem;margin-top:2px;">Chat In Progress · {st.session_state.user_name}</div>
         </div>
         """, unsafe_allow_html=True)
     with hcol2:
-        st.markdown('<div style="background:#7B00FF;padding:0.6rem 0.4rem 0 0;border-radius:0 16px 0 0;height:100%;display:flex;align-items:center;justify-content:center;">', unsafe_allow_html=True)
-        if st.button("🔴 End Chat", key="end_chat"):
+        if st.button("🟠 End Chat", key="end_chat"):
             for k, v in {"birth_submitted": False, "chart_data": None,
                          "messages": [], "chat_count": 0, "user_name": ""}.items():
                 st.session_state[k] = v
             st.rerun()
-        st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown(f"""
     <div class="chat-card" style="border-radius:0 0 16px 16px;margin-top:0;">
@@ -676,7 +677,6 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-    # ── Input form ──
     with st.form("chat", clear_on_submit=True):
         col1, col2 = st.columns([5, 1])
         with col1:
@@ -712,7 +712,6 @@ else:
             })
         st.rerun()
 
-    # ── Consult banner ──
     st.markdown("""
     <div class="consult-banner">
       <div>
